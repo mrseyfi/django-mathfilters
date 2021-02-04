@@ -137,6 +137,6 @@ def format(value, arg):
     return arg.format(value)
 
 
-@register.filter(name='intcomma')
-def intcomma(value):
+@register.filter(name='comma')
+def comma(value):
     return "%s"%'{0:,}'.format(value)
