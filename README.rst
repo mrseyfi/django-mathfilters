@@ -41,6 +41,7 @@ Usage
 You need to load ``mathfilters`` at the top of your template. The script
 provides the following filters:
 
+
 * ``sub`` – subtraction
 * ``mul`` – multiplication
 * ``div`` – division
@@ -49,6 +50,11 @@ provides the following filters:
 * ``mod`` – modulo
 * ``addition`` – replacement for the ``add`` filter with support for float /
   decimal types
+* ``format`` – set formatting
+* ``intcomma`` – use THOUSAND SEPARATOR
+* ``to_int`` – convert to int
+
+
 
 **Example:**
 
@@ -74,6 +80,12 @@ provides the following filters:
         {% endwith %}
 
         <li>|-13| = {{ -13|abs }}</li>
+
+
+        <li>10,000 = {{ 10000|format:"{0:,}" }}</li>
+        <li>10,000 = {{ 10000|intcomma" }}</li>
+        <li>10000 = {{ 10,000|to_int" }}</li>
+
     </ul>
 
 
