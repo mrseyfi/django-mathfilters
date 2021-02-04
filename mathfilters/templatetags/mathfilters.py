@@ -147,4 +147,16 @@ def comma(value):
 			return "%s"%'{0:,}'.format(valid_numeric(value.replace(',','')))
 		except Exception:
 			return ''
-	
+
+
+@register.filter(name='to_int')
+def to_int(value):
+	"""Return the absolute value."""
+	try:
+		return int(value)
+	except (ValueError, TypeError):
+		try:
+			return int(value.replace(',',''))
+		except Exception:
+			return 0
+
