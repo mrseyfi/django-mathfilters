@@ -2,12 +2,12 @@ import codecs
 from setuptools import setup
 
 setup(name='django-mathfilters',
-      version='1.0.0',
+      version='1.0.1',
       description='A set of simple math filters for Django',
       long_description=codecs.open('README.rst', encoding='utf-8').read(),
       author='mehrdad seyfi',
       author_email='info@mrseyfi.ir',
-      url='https://github.com/dbrgn/django-mathfilters',
+      url='https://github.com/mrseyfi/django-mathfilters',
       license='MIT',
       keywords='django template filters math',
       packages=['mathfilters', 'mathfilters.templatetags'],
