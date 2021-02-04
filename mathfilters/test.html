@@ -10,12 +10,16 @@
             <td>Use THOUSAND SEPARATOR</td>
         </tr>
         <tr>
-            <td>{{ 10000|intcomma }}</td>
+            <td>{{ 10000|comma }}</td>
             <td>Use THOUSAND SEPARATOR</td>
         </tr>
         <tr>
             <td>{{ 10000|format:"{:0.2f}" }}</td>
             <td>Format a decimal to always show 2 decimal places</td>
+        </tr>
+        <tr>
+            <td>{{ 10000|to_int }}</td>
+            <td>Convert to int</td>
         </tr>
     </table>
 </body>
