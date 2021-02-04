@@ -29,7 +29,7 @@ Installation
 ============
 
 ::
-
+    $ pip3 install git+https://github.com/mrseyfi/django-mathfilters.git --upgrade
     $ pip install django-mathfilters
 
 Then add ``mathfilters`` to your ``INSTALLED_APPS``.

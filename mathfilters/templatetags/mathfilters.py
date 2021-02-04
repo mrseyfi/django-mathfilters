@@ -135,3 +135,8 @@ def addition(value, arg):
 @register.filter(name='format')
 def format(value, arg):
     return arg.format(value)
+
+
+@register.filter(name='intcomma')
+def intcomma(value):
+    return "%s"%'{0:,}'.format(value)

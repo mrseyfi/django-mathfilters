@@ -1,0 +1,23 @@
+{% load mathfilters %}
+
+<html>
+<head>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>{{ 10000|format:"{0:,}" }}</td>
+            <td>Use THOUSAND SEPARATOR</td>
+        </tr>
+        <tr>
+            <td>{{ 10000|intcomma }}</td>
+            <td>Use THOUSAND SEPARATOR</td>
+        </tr>
+        <tr>
+            <td>{{ 10000|format:"{:0.2f}" }}</td>
+            <td>Format a decimal to always show 2 decimal places</td>
+        </tr>
+    </table>
+</body>
+
+</html>
