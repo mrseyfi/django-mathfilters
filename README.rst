@@ -4,11 +4,7 @@ django-mathfilters
 
 .. image:: https://github.com/dbrgn/django-mathfilters/workflows/CI/badge.svg
     :alt: Build status
-    :target: https://github.com/dbrgn/django-mathfilters/actions?query=branch%3Amaster
-
-.. image:: https://pypip.in/d/django-mathfilters/badge.png
-    :alt: PyPI download stats
-    :target: https://crate.io/packages/django-mathfilters
+    :target: https://github.com/mrseyfi/django-mathfilters/actions?query=branch%3Amaster
 
 
 django-mathfilters is a Python 3 module that provides different simple math
@@ -30,7 +26,6 @@ Installation
 
 ::
     $ pip3 install git+https://github.com/mrseyfi/django-mathfilters.git --upgrade
-    $ pip install django-mathfilters
 
 Then add ``mathfilters`` to your ``INSTALLED_APPS``.
 
@@ -48,8 +43,7 @@ provides the following filters:
 * ``intdiv`` – integer (floor) division
 * ``abs`` – absolute value
 * ``mod`` – modulo
-* ``addition`` – replacement for the ``add`` filter with support for float /
-  decimal types
+* ``addition`` – replacement for the ``add`` filter with support for float decimal types
 * ``format`` – set formatting
 * ``intcomma`` – use THOUSAND SEPARATOR
 * ``to_int`` – convert to int
@@ -83,8 +77,10 @@ provides the following filters:
 
 
         <li>10,000 = {{ 10000|format:"{0:,}" }}</li>
-        <li>10,000 = {{ 10000|intcomma" }}</li>
-        <li>10000 = {{ 10,000|to_int" }}</li>
+        
+        <li>10,000 = {{ 10000|intcomma }}</li>
+        
+        <li>10000 = {{ 10,000|to_int }}</li>
 
     </ul>
 
