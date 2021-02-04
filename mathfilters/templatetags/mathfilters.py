@@ -137,7 +137,7 @@ def format(value, arg):
 	return arg.format(value)
 
 
-@register.filter(name='comma')
+@register.filter(name='intcomma')
 def intcomma(value):
 	"""Return the absolute value."""
 	try:
