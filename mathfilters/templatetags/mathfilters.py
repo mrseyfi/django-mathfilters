@@ -131,3 +131,7 @@ def addition(value, arg):
             return value + arg
         except Exception:
             return ''
+
+@register.filter(name='format')
+def format(value, arg):
+    return arg.format(value)
