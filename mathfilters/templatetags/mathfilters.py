@@ -138,7 +138,7 @@ def format(value, arg):
 
 
 @register.filter(name='comma')
-def comma(value):
+def intcomma(value):
 	"""Return the absolute value."""
 	try:
 		return "%s"%'{0:,}'.format(valid_numeric(value))
