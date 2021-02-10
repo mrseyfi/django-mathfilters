@@ -202,7 +202,6 @@ def jdatetime(value,arg=""):
 	except Exception as err:
 		return err
 
-print(jdatetime("now"))
 
 @register.filter(name='digit')
 def digit(values,arg):
