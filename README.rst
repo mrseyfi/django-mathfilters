@@ -51,8 +51,9 @@ provides the following filters:
 * ``addition`` – replacement for the ``add`` filter with support for float decimal types
 * ``format`` – set formatting
 * ``intcomma`` – use THOUSAND SEPARATOR
-* ``to_int`` – convert to int
-
+* ``jdatetime`` – convert to Jalali calendar
+* ``digit`` – convert to persian digits
+* ``character`` – convert to persian keywords
 
 
 **Example:**
@@ -105,7 +106,8 @@ provides the following filters:
 
         <li>0987654321 = {{ ۰۹۸۷۶۵۴۳۲۱|digit:fa_to_en }}</li>
 
-        <li>کیک = {{ كيك|character }}</li>
+        <li>کیک
+         {{ كيك|character }}</li>
 
 
 
