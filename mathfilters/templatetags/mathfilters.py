@@ -164,7 +164,14 @@ def to_int(value):
 @register.filter(name='jdatetime')
 def jdatetime(value,arg=""):
 	try:
-		if value == "now":
+		if str(value) == "now":
+			now="%Y-%m-%d %H:%M:%S"
+			resultdate= JalaliDateTime.now()
+		elif str(value) == "time":
+			arg ="%H:%M:%S"
+			resultdate= JalaliDateTime.now()
+		elif str(value) == "date":
+			arg ="%Y-%m-%d"
 			resultdate= JalaliDateTime.now()
 		else:
 			if isinstance(value, datetime.date):
