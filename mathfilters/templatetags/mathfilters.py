@@ -1,7 +1,7 @@
 import logging
-import jdatetime
+from persiantools.jdatetime import JalaliDateTime
+from persiantools import characters, digits
 from decimal import Decimal
-
 from django.template import Library
 
 
@@ -161,6 +161,48 @@ def to_int(value):
 		except Exception:
 			return 0
 
-@register.filter(name='jdatenow')
-def jdatenow(value):
-	return jdatetime.datetime.now()
+@register.filter(name='jdatetime')
+def jdatetime(value, arg):
+	try:
+		if arg == "now":
+			return JalaliDateTime.now()
+		else:
+			if isinstance(arg, datetime.date):
+				return JalaliDateTime.to_jalali(arg)
+			else:
+				year, month, day = map(int, arg[:10].split('-'))
+				hour = minute = second =millisecond=0
+				if arg.find(' ') == 10:
+					date,time = arg.split(' ')
+					time=time.split(':')
+					print(len(time))
+					if len(time)==1:
+						hour= int(time[0])
+					elif len(time)==2:
+						hour= int(time[0])
+						minute= int(time[1])
+					elif len(time)==3:
+						hour= int(time[0])
+						minute= int(time[1])
+						time=time[2].split('.')
+						second= int(time[0])
+						if len(time)>1:
+							millisecond= int(time[1])						
+				return JalaliDateTime.to_jalali(datetime.datetime(year, month, day,hour, minute, second, millisecond))
+	except Exception as err:
+		return err
+
+def digit(values,arg):
+	if arg=="" or arg =="en_to_fa":
+		return digits.en_to_fa(values)
+	elif arg =="ar_to_fa":
+		return digits.ar_to_fa(values)
+	elif valargues =="fa_to_en":
+		return digits.fa_to_en(values)	
+	elif arg =="fa_to_ar":
+		return digits.fa_to_ar(values)	
+	else:
+		return values
+	
+def character(values):
+	return characters.ar_to_fa(values)	

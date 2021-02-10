@@ -2,7 +2,7 @@ import codecs
 from setuptools import setup
 
 setup(name='django-mathfilters',
-      version='1.0.3',
+      version='1.0.4',
       description='A set of simple math filters for Django',
       long_description=codecs.open('README.rst', encoding='utf-8').read(),
       author='mehrdad seyfi',

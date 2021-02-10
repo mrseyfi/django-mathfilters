@@ -30,6 +30,11 @@ Installation
 Then add ``mathfilters`` to your ``INSTALLED_APPS``.
 
 
+Requirement
+===========
+    $ pip install jDateTime
+
+
 Usage
 =====
 
@@ -81,6 +86,18 @@ provides the following filters:
         <li>10,000 = {{ 10000|intcomma }}</li>
         
         <li>10000 = {{ 10,000|to_int }}</li>
+
+        <li>1399-11-22 12:12:12 = {{ 2021-02-10 12:12:12|jdatetime }}</li>
+
+        <li>1399-11-22 = {{ 2021-02-10 12:12:12|jdatetime|date:"Y-m-d" }}</li>
+
+        <li>۰۹۸۷۶۵۴۳۲۱ = {{ 0987654321|digit }}</li>
+
+        <li>0987654321 = {{ ۰۹۸۷۶۵۴۳۲۱|digit:fa_to_en }}</li>
+
+        <li>کیک = {{ كيك|character }}</li>
+
+
 
     </ul>
 
