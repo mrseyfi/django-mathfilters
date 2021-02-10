@@ -3,7 +3,7 @@ from persiantools.jdatetime import JalaliDateTime
 from persiantools import characters, digits
 from decimal import Decimal
 from django.template import Library
-
+import datetime
 
 register = Library()
 logger = logging.getLogger(__name__)
@@ -194,11 +194,12 @@ def jdatetime(value):
 
 @register.filter(name='digit')
 def digit(values,arg):
+	values = str(values)
 	if arg=="" or arg =="en_to_fa":
 		return digits.en_to_fa(values)
 	elif arg =="ar_to_fa":
 		return digits.ar_to_fa(values)
-	elif valargues =="fa_to_en":
+	elif arg =="fa_to_en":
 		return digits.fa_to_en(values)	
 	elif arg =="fa_to_ar":
 		return digits.fa_to_ar(values)	
