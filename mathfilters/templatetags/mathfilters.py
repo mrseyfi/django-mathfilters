@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 def valid_numeric(arg):
+	arg= arg.replace(',','').replace('/','.')
 	if isinstance(arg, (int, float, Decimal)):
 		return arg
 	try:
@@ -142,24 +143,27 @@ def format(value, arg):
 def intcomma(value):
 	"""Return the absolute value."""
 	try:
-		return "%s"%'{0:,}'.format(valid_numeric(value))
+		value = valid_numeric(value.replace(',',''))
+		if str(value).endswith('.0'): value =int(float(value))
+		return "%s"%'{0:,}'.format(value)
 	except (ValueError, TypeError):
 		try:
-			return "%s"%'{0:,}'.format(valid_numeric(value.replace(',','')))
+			value =int(float(value))
+			return "%s"%'{0:,}'.format(value)
 		except Exception:
-			return ''
+			return value
 
 
 @register.filter(name='to_int')
 def to_int(value):
 	"""Return the absolute value."""
-	try:
-		return int(value)
-	except (ValueError, TypeError):
-		try:
-			return int(value.replace(',',''))
-		except Exception:
-			return 0
+    try:
+        return int(float(value))
+    except (ValueError, TypeError):
+        try:
+            return int(float(value.replace(',','').replace('/','.').replace('\\','.')))
+        except Exception:
+            return 0
 
 @register.filter(name='jdatetime')
 def jdatetime(value,arg=""):
