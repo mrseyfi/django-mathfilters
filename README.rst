@@ -87,11 +87,11 @@ provides the following filters:
         
         <li>10000 = {{ 10,000|to_int }}</li>
 
-        <li>1399-11-22 12:12:12 = {{ now|jdatetime }}</li>
+        <li>1399-11-22 12:12:12 = {{ "now"|jdatetime }}</li>
 
-        <li>1399-11-22 = {{ date|jdatetime }}</li>
+        <li>1399-11-22 = {{ "date"|jdatetime }}</li>
 
-        <li>12:12:12 = {{ time|jdatetime }}</li>
+        <li>12:12:12 = {{ "time"|jdatetime }}</li>
 
         <li>1399-11-22 12:12:12 = {{ "2021-02-10 12:12:12"|jdatetime }}</li>
 
