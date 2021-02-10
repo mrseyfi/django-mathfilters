@@ -157,13 +157,13 @@ def intcomma(value):
 @register.filter(name='to_int')
 def to_int(value):
 	"""Return the absolute value."""
-    try:
-        return int(float(value))
-    except (ValueError, TypeError):
-        try:
-            return int(float(value.replace(',','').replace('/','.').replace('\\','.')))
-        except Exception:
-            return 0
+	try:
+		return int(float(value))
+	except (ValueError, TypeError):
+		try:
+			return int(float(value.replace(',','').replace('/','.').replace('\\','.')))
+		except Exception:
+			return 0
 
 @register.filter(name='jdatetime')
 def jdatetime(value,arg=""):
