@@ -1,4 +1,5 @@
 import logging
+import jdatetime
 from decimal import Decimal
 
 from django.template import Library
@@ -160,3 +161,6 @@ def to_int(value):
 		except Exception:
 			return 0
 
+@register.filter(name='jdatenow')
+def format(value):
+	return jdatetime.datetime.now()
