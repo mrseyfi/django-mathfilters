@@ -165,13 +165,13 @@ def to_int(value):
 def jdatetime(value,arg=""):
 	try:
 		if str(value) == "now":
-			now="%Y-%m-%d %H:%M:%S"
+			if arg=="": arg="%Y-%m-%d %H:%M:%S"
 			resultdate= JalaliDateTime.now()
 		elif str(value) == "time":
-			arg ="%H:%M:%S"
+			if arg=="": arg ="%H:%M:%S"
 			resultdate= JalaliDateTime.now()
 		elif str(value) == "date":
-			arg ="%Y-%m-%d"
+			if arg=="": arg ="%Y-%m-%d"
 			resultdate= JalaliDateTime.now()
 		else:
 			if isinstance(value, datetime.date):
