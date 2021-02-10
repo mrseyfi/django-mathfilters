@@ -162,5 +162,5 @@ def to_int(value):
 			return 0
 
 @register.filter(name='jdatenow')
-def format(value):
+def jdatenow(value):
 	return jdatetime.datetime.now()
