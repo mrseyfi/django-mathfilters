@@ -13,7 +13,7 @@ def valid_numeric(arg):
 	if isinstance(arg, (int, float, Decimal)):
 		return arg
 	try:
-		arg= arg.replace(',','').replace('/','.').replace('\\','.')
+		arg= str(arg).replace(',','').replace('/','.').replace('\\','.')
 		return int(arg)
 	except ValueError:
 		return float(arg)
@@ -204,7 +204,7 @@ def jdatetime(value,arg=""):
 		else:
 			return resultdate
 	except Exception as err:
-		return err
+		return "jdatetime error:%s"%err
 
 
 @register.filter(name='digit')
