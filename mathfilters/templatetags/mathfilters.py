@@ -165,7 +165,7 @@ def to_int(value):
 def jdatetime(value,arg=""):
 	try:
 		if value == "now":
-			resultdate= JalaliDateTime.now().strftime(arg)
+			resultdate= JalaliDateTime.now()
 		else:
 			if isinstance(value, datetime.date):
 				resultdate= JalaliDateTime.to_jalali(value)
@@ -194,6 +194,8 @@ def jdatetime(value,arg=""):
 			return resultdate
 	except Exception as err:
 		return err
+
+print(jdatetime("now"))
 
 @register.filter(name='digit')
 def digit(values,arg):
