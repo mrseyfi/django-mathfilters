@@ -162,20 +162,19 @@ def to_int(value):
 			return 0
 
 @register.filter(name='jdatetime')
-def jdatetime(value):
+def jdatetime(value,arg=""):
 	try:
 		if value == "now":
-			return JalaliDateTime.now()
+			resultdate= JalaliDateTime.now().strftime(arg)
 		else:
 			if isinstance(value, datetime.date):
-				return JalaliDateTime.to_jalali(value)
+				resultdate= JalaliDateTime.to_jalali(value)
 			else:
 				year, month, day = map(int, value[:10].split('-'))
 				hour = minute = second =millisecond=0
 				if value.find(' ') == 10:
 					date,time = value.split(' ')
 					time=time.split(':')
-					print(len(time))
 					if len(time)==1:
 						hour= int(time[0])
 					elif len(time)==2:
@@ -188,7 +187,11 @@ def jdatetime(value):
 						second= int(time[0])
 						if len(time)>1:
 							millisecond= int(time[1])						
-				return JalaliDateTime.to_jalali(datetime.datetime(year, month, day,hour, minute, second, millisecond))
+				resultdate= JalaliDateTime.to_jalali(datetime.datetime(year, month, day,hour, minute, second, millisecond))
+		if arg :
+			return resultdate.strftime(arg)
+		else:
+			return resultdate
 	except Exception as err:
 		return err
 
