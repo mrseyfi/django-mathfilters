@@ -32,7 +32,7 @@ Then add ``mathfilters`` to your ``INSTALLED_APPS``.
 
 Requirement
 ===========
-    $ pip install jDateTime
+    $ pip3 install persiantools
 
 
 Usage
