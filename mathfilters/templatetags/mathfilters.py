@@ -10,10 +10,10 @@ logger = logging.getLogger(__name__)
 
 
 def valid_numeric(arg):
-	arg= arg.replace(',','').replace('/','.')
 	if isinstance(arg, (int, float, Decimal)):
 		return arg
 	try:
+		arg= arg.replace(',','').replace('/','.').replace('\\','.')
 		return int(arg)
 	except ValueError:
 		return float(arg)
@@ -143,7 +143,7 @@ def format(value, arg):
 def intcomma(value):
 	"""Return the absolute value."""
 	try:
-		value = valid_numeric(value.replace(',',''))
+		value = valid_numeric(value)
 		if str(value).endswith('.0'): value =int(float(value))
 		return "%s"%'{0:,}'.format(value)
 	except (ValueError, TypeError):
