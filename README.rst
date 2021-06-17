@@ -109,7 +109,7 @@ provides the following filters:
         <li>کیک
          {{ كيك|character }}</li>
 
-        <li>مطلب-شماره-یک = {{ "مطلب شماره یک"|slugifyunicode }}</li>
+        <li>مطلب-شماره-یک = {{ "مطلب شماره یک"|slugify_unicode }}</li>
 
 
     </ul>

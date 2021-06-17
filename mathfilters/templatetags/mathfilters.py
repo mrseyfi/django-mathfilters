@@ -226,8 +226,8 @@ def digit(values,arg):
 def character(values):
 	return characters.ar_to_fa(values)	
 
-@register.filter(name='slugifyunicode')
-def slugifyunicode(value):
+@register.filter(name='slugify_unicode')
+def slugify_unicode(value):
 	"""Return the slugify unicode value."""
 	try:
 		return "%s"%(slugify(value, allow_unicode=True))
