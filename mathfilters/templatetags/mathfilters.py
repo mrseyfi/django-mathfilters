@@ -4,6 +4,7 @@ from persiantools import characters, digits
 from decimal import Decimal
 from django.template import Library
 import datetime
+from django.utils.text import slugify
 
 register = Library()
 logger = logging.getLogger(__name__)
@@ -224,3 +225,14 @@ def digit(values,arg):
 @register.filter(name='character')
 def character(values):
 	return characters.ar_to_fa(values)	
+
+@register.filter(name='slugifyunicode')
+def slugifyunicode(value):
+	"""Return the slugify unicode value."""
+	try:
+		return "%s"%(slugify(value, allow_unicode=True))
+	except (ValueError, TypeError):
+		try:			
+			return str(value).replace("  "," ").replace(" ","_").replace("__","_")
+		except Exception:
+			return value
